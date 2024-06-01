@@ -37,12 +37,16 @@ a > span:hover {
 
 /* Logout button styles */
 .logoutButton {
-  margin-left: 30px; /* Adjust margin as needed */
-  font-size: 1.3rem;
-  cursor: pointer;
+  background-color: #ff5050;
   color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: background-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  color: red;
+  background-color: #e60000;
 }
