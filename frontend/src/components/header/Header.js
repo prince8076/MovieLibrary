@@ -1,5 +1,3 @@
-// Header.js
-
 import React from "react";
 import "../header/Header.css";
 import { Link } from "react-router-dom";
@@ -21,15 +19,19 @@ function Header({ user, setLoginUser }) {
             alt="IMDB Logo"
           />
         </Link>
-        <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
-          <span>Upcoming</span>
-        </Link>
-        <Link to="/movies/popular" style={{ textDecoration: "none" }}>
-          <span>Popular</span>
-        </Link>
-        <Link to="/movies/top_rated" style={{ textDecoration: "none" }}>
-          <span>Top Rated</span>
-        </Link>
+        {user && user._id && (
+          <>
+            <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
+              <span>Upcoming</span>
+            </Link>
+            <Link to="/movies/popular" style={{ textDecoration: "none" }}>
+              <span>Popular</span>
+            </Link>
+            <Link to="/movies/top_rated" style={{ textDecoration: "none" }}>
+              <span>Top Rated</span>
+            </Link>
+          </>
+        )}
       </div>
       <div className="headerRight">
         {user && user._id ? (
