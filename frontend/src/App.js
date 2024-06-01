@@ -1,20 +1,21 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import Home from "./pages/home/home.js";
-import MovieList from "./components/movieList/movieList.js";
-import Movie from "./components/movieDetail/movieDetail.js";
-import Login from "./components/login/login.js";
+import Home from "./pages/home/home";
+import MovieList from "./components/movieList/movieList";
+import Movie from "./components/movieDetail/movieDetail";
+import Login from "./components/login/login";
+import Register from "./components/signup/signup";
 import { useState } from "react";
-import Register from "./components/signup/signup.js";
 
 function App() {
-  const [user, setLoginUser] = useState({});
+  const [user, setLoginUser] = useState(null); // Initialize with null
 
   return (
     <div className="App">
       <Router>
-        <Header /> {/* Include the Header component here */}
+        <Header user={user} setLoginUser={setLoginUser} />{" "}
+        {/* Pass user and setLoginUser to Header */}
         <Routes>
           <Route
             path="/"

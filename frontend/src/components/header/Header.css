@@ -1,3 +1,6 @@
+/* Header.css */
+
+/* Existing styles */
 .header {
   margin: 0 2.5rem;
   padding: 0.5rem 0;
@@ -30,4 +33,16 @@ a > span:hover {
 
 .user_avatar {
   font-size: 2rem;
+}
+
+/* Logout button styles */
+.logoutButton {
+  margin-left: 30px; /* Adjust margin as needed */
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: white;
+}
+
+.logoutButton:hover {
+  color: red;
 }
