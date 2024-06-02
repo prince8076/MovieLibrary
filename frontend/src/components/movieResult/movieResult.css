@@ -4,42 +4,22 @@
 
 .movie-list {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto; /* Enable horizontal scrolling */
   gap: 20px;
+  padding-bottom: 20px; /* Add some padding at the bottom */
 }
 
 .movie-item {
-  width: 200px;
-  text-align: center;
-}
-
-.movie-item img {
-  width: 100%;
-  height: auto;
-}
-.skeleton-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0.19rem;
-}
-
-.skeleton-card .skeleton {
-  width: 100%;
-  height: 300px; /* Adjust height as needed */
+  min-width: 200px; /* Set a minimum width for each movie item */
 }
 
 .movie-card {
-  display: inline-block;
+  flex: 0 0 auto; /* Ensure items do not shrink */
   transition: transform 0.2s;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  margin: 0.19rem;
   cursor: pointer;
-  min-width: 200px;
-  height: auto;
-  z-index: 0;
   border: 1px solid rgb(99, 99, 99);
 }
 

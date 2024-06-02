@@ -3,6 +3,22 @@
   --secondary: #21d07a;
   --white: #fff;
 }
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+header {
+  background-color: var(--primary);
+}
+header a {
+  color: var(--white);
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
 .movie-page {
   padding: 30px 0;
 }
@@ -35,8 +51,8 @@
   grid-gap: 30px;
 }
 
-.movie-page .no-movies {
-  color: #c4c4c4;
-  font-size: 3rem;
-  text-align: center;
+@media (min-width: 992px) {
+  .movie-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
