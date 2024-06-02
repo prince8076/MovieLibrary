@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "./movieResult.css"; // Import the CSS file for results styling
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "./movieResult.css";
 
 const Results = () => {
   const location = useLocation();
@@ -12,10 +13,33 @@ const Results = () => {
       <div className="movie-list">
         {results ? (
           results.map((movie) => (
-            <div key={movie.imdbID} className="movie-item">
-              <img src={movie.Poster} alt={movie.Title} />
-              <h3>{movie.Title}</h3>
-              <p>{movie.Year}</p>
+            <div key={movie.id} className="movie-card">
+              {movie ? (
+                <>
+                  <img
+                    className="movie-card__img"
+                    src={movie.Poster}
+                    alt={movie.Title}
+                  />
+                  <div className="movie-card__overlay">
+                    <div className="movie-card__title">{movie.Title}</div>
+                    <div className="movie-card__runtime">
+                      {movie.Year}
+                      <span className="movie-card__rating">
+                        {movie.imdbRating}
+                        <i className="fas fa-star"></i>
+                      </span>
+                    </div>
+                    <div className="movie-card__description">{movie.Plot}</div>
+                  </div>
+                </>
+              ) : (
+                <SkeletonTheme color="#202020" highlightColor="#444">
+                  <div className="skeleton-card">
+                    <Skeleton height={300} duration={2} />
+                  </div>
+                </SkeletonTheme>
+              )}
             </div>
           ))
         ) : (

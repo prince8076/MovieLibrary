@@ -1,5 +1,3 @@
-// Header.js
-
 import React, { useState } from "react";
 import "../header/Header.css";
 import { Link } from "react-router-dom";
@@ -43,6 +41,14 @@ function Header({ user, setLoginUser }) {
             <Link to="/movies/top_rated" className="headerLink">
               <span>Top Rated</span>
             </Link>
+            <Link to="/watchlist" className="headerLink">
+              <span>Watch List</span>
+            </Link>
+            <div className="btn-container">
+              <Link to="/add" className="btn">
+                <span>+ADD</span>
+              </Link>
+            </div>
           </>
         )}
       </div>

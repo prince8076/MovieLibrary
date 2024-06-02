@@ -3,6 +3,7 @@ const cors = require("cors");
 const PORT = 8000;
 const userRoutes = require("./routes/user");
 const { connectMongoDB } = require("./connection");
+const listRoutes = require("./routes/addFavoriteMovieToList");
 
 const app = express();
 
@@ -18,6 +19,7 @@ connectMongoDB(MONGO_URI);
 
 // Routes
 app.use("/", userRoutes);
+app.use("/api/lists", listRoutes);
 
 // Start the server
 app.listen(PORT, () => {
