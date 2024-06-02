@@ -7,6 +7,8 @@ import Movie from "./components/movieDetail/movieDetail";
 import Login from "./components/login/login";
 import Register from "./components/signup/signup";
 import { useState } from "react";
+import MovieSearch from "./components/movieSearch/movieSearch";
+import MovieResult from "./components/movieResult/movieResult";
 
 function App() {
   const [user, setLoginUser] = useState(null); // Initialize with null
@@ -34,6 +36,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/movies/:type" element={<MovieList />} />
+          <Route path="/search" element={<MovieSearch />} />
+          <Route path="/" element={<Movie />} />
+          <Route path="/results" element={<MovieResult />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </Router>

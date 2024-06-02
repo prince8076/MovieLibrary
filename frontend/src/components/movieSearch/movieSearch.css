@@ -1,0 +1,72 @@
+/* MovieSearch.css */
+
+/* Container for the entire MovieSearch component */
+.movieSearchContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Input field for the search query */
+.movieSearchInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  transition: border-color 0.3s ease; /* Add transition effect for focus */
+}
+
+.movieSearchInput:focus {
+  outline: none;
+  border-color: #0056b3; /* Change border color on focus */
+}
+
+/* Button for executing the search */
+.movieSearchButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition effect for hover */
+}
+
+.movieSearchButton:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Container for displaying search results */
+.movieResult {
+  margin-top: 20px;
+}
+
+/* Individual item in the search results */
+.movieResultItem {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Title of each movie in the search results */
+.movieTitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Overview of each movie in the search results */
+.movieOverview {
+  margin-bottom: 10px;
+}
+
+/* Poster image of each movie in the search results */
+.moviePoster {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+}

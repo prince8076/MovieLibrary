@@ -1,14 +1,25 @@
 // Header.js
 
-import React from "react";
+import React, { useState } from "react";
 import "../header/Header.css";
 import { Link } from "react-router-dom";
+import MovieSearch from "../movieSearch/movieSearch"; // Import the MovieSearch component
 
 function Header({ user, setLoginUser }) {
+  const [searchQuery, setSearchQuery] = useState(""); // State to track search query
+
   const handleLogout = () => {
     setLoginUser(null); // Clear user state on logout
     // Optionally clear tokens or user data from local storage
     // localStorage.removeItem("userToken");
+  };
+
+  const handleSearch = (event) => {
+    // Update the search query state with user input
+    setSearchQuery(event.target.value);
+    // Perform search operations based on the searchQuery
+    // You can pass the searchQuery to MovieSearch component or handle search directly here
+    console.log("Search query:", event.target.value);
   };
 
   return (
@@ -23,13 +34,13 @@ function Header({ user, setLoginUser }) {
         </Link>
         {user && user._id && (
           <>
-            <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
+            <Link to="/movies/upcoming" className="headerLink">
               <span>Upcoming</span>
             </Link>
-            <Link to="/movies/popular" style={{ textDecoration: "none" }}>
+            <Link to="/movies/popular" className="headerLink">
               <span>Popular</span>
             </Link>
-            <Link to="/movies/top_rated" style={{ textDecoration: "none" }}>
+            <Link to="/movies/top_rated" className="headerLink">
               <span>Top Rated</span>
             </Link>
           </>
@@ -37,16 +48,20 @@ function Header({ user, setLoginUser }) {
       </div>
       <div className="headerRight">
         {user && user._id ? (
-          <button onClick={handleLogout} className="logoutButton">
-            Logout
-          </button>
+          <>
+            {/* Pass handleSearch function to MovieSearch component */}
+            <MovieSearch handleSearch={handleSearch} />
+            <Link to="/" className="headerLink" onClick={handleLogout}>
+              Logout
+            </Link>
+          </>
         ) : (
           <>
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <span>Login</span>
+            <Link to="/login" className="headerLink">
+              Login
             </Link>
-            <Link to="/register" style={{ textDecoration: "none" }}>
-              <span>Signup</span>
+            <Link to="/register" className="headerLink">
+              Signup
             </Link>
           </>
         )}

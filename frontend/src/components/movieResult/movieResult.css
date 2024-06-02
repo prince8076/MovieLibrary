@@ -1,0 +1,19 @@
+.results {
+  padding: 20px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-item {
+  width: 200px;
+  text-align: center;
+}
+
+.movie-item img {
+  width: 100%;
+  height: auto;
+}
