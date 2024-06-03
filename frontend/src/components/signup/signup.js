@@ -24,7 +24,7 @@ const Signup = () => {
   const register = () => {
     const { name, email, password, reEnterPassword } = user;
     if (name && email && password && password === reEnterPassword) {
-      axios.post("http://localhost:8000/signup", user).then((res) => {
+      axios.post(`${window.location.origin}/signup`, user).then((res) => {
         navigate("/");
       });
     } else {

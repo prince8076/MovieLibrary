@@ -27,7 +27,7 @@ export const GlobalProvider = ({ children }) => {
         payload: movie,
       });
       // Make API call to add movie to database
-      await axios.post("http://localhost:8000/api/addMovie", movie);
+      await axios.post(`${window.location.origin}/api/addMovie`, movie);
     } catch (err) {
       console.error("Error adding movie:", err);
     }
