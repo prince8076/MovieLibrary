@@ -4,7 +4,6 @@ const PORT = 8000;
 const userRoutes = require("./routes/user");
 const { connectMongoDB } = require("./connection");
 const movieRoutes = require("./routes/movieRoutes");
-const path = require("path");
 
 const app = express();
 
@@ -24,10 +23,6 @@ app.use("/", userRoutes);
 // Routes
 app.use("/api", movieRoutes);
 
-app.get("/", (req, res) => {
-  app.use(express.static(path.join(__dirname, "frontend", "build")));
-  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
