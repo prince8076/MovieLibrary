@@ -1,6 +1,7 @@
+// context/GlobalContext.js
 import React, { useReducer, createContext, useEffect } from "react";
 import AppReducer from "./AppReducer";
-import { json } from "react-router-dom";
+import axios from "axios"; // Import axios for API calls
 
 // Initial state
 const initialState = {
@@ -19,12 +20,19 @@ export const GlobalProvider = ({ children }) => {
     localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
   }, [state]);
 
-  const addMovie = (movie) => {
-    dispatch({
-      type: "ADD_MOVIE_TO_WATCHLIST",
-      payload: movie,
-    });
+  const addMovie = async (movie) => {
+    try {
+      dispatch({
+        type: "ADD_MOVIE_TO_WATCHLIST",
+        payload: movie,
+      });
+      // Make API call to add movie to database
+      await axios.post("http://localhost:8000/api/addMovie", movie);
+    } catch (err) {
+      console.error("Error adding movie:", err);
+    }
   };
+
   const removeMovieFromWatchList = (id) => {
     dispatch({
       type: "REMOVE_MOVIE_FROM_WATCH_LIST",
