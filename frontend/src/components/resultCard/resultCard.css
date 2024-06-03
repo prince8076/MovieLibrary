@@ -27,7 +27,7 @@
 
 .result-card .info .title {
   font-size: 1.25rem;
-  color: var(--primary);
+  color: var(--white);
   font-weight: 600;
   margin: 0;
 }
@@ -35,7 +35,7 @@
 .result-card .info .release-date {
   font-size: 1.25rem;
   font-weight: 300;
-  color: var(--primary);
+  color: var(--white);
   margin: 0;
 }
 

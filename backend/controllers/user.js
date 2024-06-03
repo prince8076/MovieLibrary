@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../modles/user"); // Ensure this path is correct
+require("dotenv").config();
 
 const generateToken = (id) => {
   return jwt.sign({ id }, "prince", { expiresIn: "30d" });
