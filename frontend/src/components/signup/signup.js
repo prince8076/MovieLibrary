@@ -21,21 +21,24 @@ const Signup = () => {
     });
   };
 
-  const register = () => {
+  const register = async () => {
     const { name, email, password, reEnterPassword } = user;
     if (name && email && password && password === reEnterPassword) {
-      axios.post(`${window.location.origin}/signup`, user).then((res) => {
+      try {
+        await axios.post(`http://localhost:8000/signup`, user);
         navigate("/");
-      });
+      } catch (error) {
+        console.error("Error during registration:", error);
+        alert("Registration failed. Please try again.");
+      }
     } else {
-      alert("Invalid input");
+      alert("Invalid input. Please check your details.");
     }
   };
 
   return (
-    <div class="signup-container">
+    <div className="signup-container">
       <div className="register">
-        {console.log("User", user)}
         <h1>Register</h1>
         <input
           type="text"
@@ -43,28 +46,28 @@ const Signup = () => {
           value={user.name}
           placeholder="Your Name"
           onChange={handleChange}
-        ></input>
+        />
         <input
-          type="text"
+          type="email"
           name="email"
           value={user.email}
           placeholder="Your Email"
           onChange={handleChange}
-        ></input>
+        />
         <input
           type="password"
           name="password"
           value={user.password}
           placeholder="Your Password"
           onChange={handleChange}
-        ></input>
+        />
         <input
           type="password"
           name="reEnterPassword"
           value={user.reEnterPassword}
           placeholder="Re-enter Password"
           onChange={handleChange}
-        ></input>
+        />
         <div className="button" onClick={register}>
           Register
         </div>

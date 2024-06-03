@@ -20,7 +20,7 @@ const Login = ({ setLoginUser }) => {
   };
 
   const login = () => {
-    axios.post(`${window.location.origin}/login`, user).then((res) => {
+    axios.post(`http://localhost:8000/login`, user).then((res) => {
       setLoginUser(res.data.user);
       navigate("/");
     });
